@@ -52,3 +52,18 @@ jobs:
           docker image tag $HASH_IMAGE_NAME cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$VERSSION
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
+          - name: Deploy Serverless Container
+      - name: Deploy Serverless Container
+        uses: yc-actions/yc-sls-container-deploy@v3
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          container-name: supabase-chat-front
+          folder-id: b1geg0kmalp5sa8upn0t
+          revision-service-account-id: ajellrnmgbbo1vqa6f3c
+          revision-cores: 1
+          revision-memory: 128Mb
+          revision-core-fraction: 20
+          revision-concurrency: 1
+          revision-image-url: cr.yandex/crpe0314hhhmd573u07l/supabase-chat-front:latest
+          revision-execution-timeout: 10
+          public: true
