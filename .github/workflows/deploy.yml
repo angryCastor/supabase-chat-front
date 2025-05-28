@@ -26,14 +26,35 @@ jobs:
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
-          CR_REGISTRY: crpe0314hhhmd573u07l
-          CR_REPOSITORY: supabase-chat-front
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_NAME: ${{ github.sha }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: |
           docker build \
             --build-arg VITE_SUPABASE_URL=$VITE_SUPABASE_URL \
             --build-arg VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY \
-            -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
-          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+            -t $IMAGE_NAME .
+      - name: Semantic Release
+        id: semantic-release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
+        with:
+          semantic_version: 20
+          branches: main
+          extra_plugins: |
+            @semantic-release/commit-analyzer,
+            @semantic-release/release-notes-generator,
+            @semantic-release/changelog,
+            @semantic-release/git
+      - name: Tag and push image to Yandex Cloud Container Registry
+        env:
+          CR_REGISTRY: crpe0314hhhmd573u07l
+          CR_REPOSITORY: supabase-chat-front
+          HASH_IMAGE_NAME: ${{ github.sha }}
+          VERSSION: ${{ steps.semantic-release.outputs.new_release_version }}
+        run: |
+          docker image tag $HASH_IMAGE_NAME cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$VERSSION
+          docker image tag $HASH_IMAGE_NAME cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
+          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$VERSSION
+          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
