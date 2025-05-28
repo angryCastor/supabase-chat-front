@@ -6,7 +6,7 @@ import { inject } from 'inversify'
 import * as yup from 'yup'
 
 const validateSchema = yup.object({
-  name: yup.string().min(6, 'Мин. 6 символов').required('Обязательное поле'),
+  name: yup.string().min(2, 'Мин. 2 символов').required('Обязательное поле'),
   email: yup.string().email('Невалидный email').required('Обязательное поле'),
   password: yup.string().min(6, 'Мин. 6 символов').required('Обязательное поле'),
   confirmPassword: yup
