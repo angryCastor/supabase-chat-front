@@ -4,7 +4,8 @@ on:
       - main
 
 jobs:
-  lint:
+  deploy:
+    environment: ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
