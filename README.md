@@ -1,39 +1,47 @@
 # supabase-chat-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+Realtime мессенджер с возможностью создания групповых чатов
 
-## Recommended IDE Setup
+![UI image](/docs/chat_image.jpeg)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Демо
 
-## Type Support for `.vue` Imports in TS
+https://bbam1fkvev4ior1vcisc.containers.yandexcloud.net/
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Для регистрации можно использовать любой email. Подтверждение не требуется.
 
-## Customize configuration
+Демо данные для входа:  
+Логин: test@test.test  
+Пароль: 111111
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Фичи
 
-## Project Setup
+Авторизация  
+Регистрация  
+Realtime  
+Создание приватных/групповых чатов
 
-```sh
-npm install
+## Стек
+
+Vue 3  
+TypeScript  
+PrimeVue  
+Tailwind  
+Vite  
+Supabase  
+semantic-release  
+CI/CD  
+Yandex Cloud
+
+## Структура файлов
+
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+root (корень проекта)
+└───src
+│   └───data - слой данных
+│   └───di
+│   └───domain - абстракции/модели
+│   └───presentation - cubit/bloc
+│   └───vue - ui
+│   └───main.ts - точка входа
 ```
