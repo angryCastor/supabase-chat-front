@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: IAM Token
         id: get-iam-token
@@ -39,14 +41,6 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
-        with:
-          semantic_version: 20
-          branches: main
-          extra_plugins: |
-            @semantic-release/commit-analyzer,
-            @semantic-release/release-notes-generator,
-            @semantic-release/changelog,
-            @semantic-release/git
       - name: Tag and push image to Yandex Cloud Container Registry
         env:
           CR_REGISTRY: crpe0314hhhmd573u07l
