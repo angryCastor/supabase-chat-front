@@ -11,14 +11,11 @@ import AuthCubit from '@/presentation/auth/AuthCubit'
 import Tooltip from 'primevue/tooltip'
 import DialogService from 'primevue/dialogservice'
 import pt from './shared/pt'
-import mobileHeightScreenFix from './shared/utils/mobileHeightScreenFix'
 
 const router = ioc.get<Router>(vueRouterKey)
 const authCubit = ioc.get(AuthCubit)
 
 export default async function () {
-  mobileHeightScreenFix()
-
   await authCubit.initialize()
 
   createApp(App)

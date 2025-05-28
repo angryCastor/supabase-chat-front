@@ -39,7 +39,7 @@ watch(
 </script>
 
 <template>
-  <div class="flex justify-center items-center" style="min-height: calc(var(--vh, 1vh) * 100)">
+  <div class="flex justify-center items-center min-h-dvh">
     <form class="max-w-80 w-screen p-4" @submit.prevent="() => cubit.registration()">
       <h1 class="text-center text-2xl">Регистрация</h1>
       <div class="mt-4">
