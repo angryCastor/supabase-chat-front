@@ -1,5 +1,7 @@
 FROM node:20.19.2-alpine AS build
 
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
 WORKDIR /usr/src/app
 COPY . .
 RUN yarn install --frozen-lockfile && yarn build

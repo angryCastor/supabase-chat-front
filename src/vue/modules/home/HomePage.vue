@@ -10,7 +10,7 @@ const messageRepository = ioc.get<MessageRepository>(messageRepositoryKey)
 const chatListCubit = ioc.get(ChatListCubit)
 
 onMounted(() => {
-  setTimeout(() => chatListCubit.initialize(), 1000)
+  chatListCubit.initialize()
   messageRepository.initialize()
 })
 
