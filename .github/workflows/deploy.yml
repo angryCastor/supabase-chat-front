@@ -52,7 +52,6 @@ jobs:
           docker image tag $HASH_IMAGE_NAME cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$VERSSION
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:latest
-          - name: Deploy Serverless Container
       - name: Deploy Serverless Container
         uses: yc-actions/yc-sls-container-deploy@v3
         with:
