@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/angryCastor/supabase-chat-front/compare/v1.0.3...v1.0.4) (2025-06-02)
+
+
+### Bug Fixes
+
+* Очищает список чатов при выходе из профиля ([7f75653](https://github.com/angryCastor/supabase-chat-front/commit/7f75653f4f00a7b97352f8a6f62645a775fa2b51))
+
 ## [1.0.3](https://github.com/angryCastor/supabase-chat-front/compare/v1.0.2...v1.0.3) (2025-05-28)
 
 
