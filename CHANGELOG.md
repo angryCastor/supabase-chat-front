@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/angryCastor/supabase-chat-front/compare/v1.0.2...v1.0.3) (2025-05-28)
+
+
+### Bug Fixes
+
+* Меняет кол-во символов для имени пользователя ([f065886](https://github.com/angryCastor/supabase-chat-front/commit/f06588657735a721dab1c6fb4e624d6a57208fea))
+
 ## [1.0.2](https://github.com/angryCastor/supabase-chat-front/compare/v1.0.1...v1.0.2) (2025-05-28)
 
 
