@@ -18,6 +18,7 @@ onUnmounted(() => {
   ChatDetailCubit.dispose()
   messageRepository.dispose()
   chatListCubit.dispose()
+  chatListCubit.clear()
 })
 </script>
 

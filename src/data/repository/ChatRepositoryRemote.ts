@@ -48,6 +48,10 @@ export default class ChatRepositoryRemote implements ChatRepository {
     return result
   }
 
+  clear(): void {
+    this.streamController.next(Either.right([]))
+  }
+
   fetchById(id: number): Promise<Either<DataError, Chat>> {
     return this.datasource.chat.fetchById(id)
   }
