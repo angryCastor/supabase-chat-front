@@ -42,6 +42,10 @@ export default class ChatListCubit extends Cubit<ChatListState> implements IDisp
     )
   }
 
+  clear() {
+    this.chatRepository.clear()
+  }
+
   dispose() {
     this.messageSubscription?.unsubscribe()
     this.chatRepository.dispose()

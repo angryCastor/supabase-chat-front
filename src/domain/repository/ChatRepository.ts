@@ -12,4 +12,5 @@ export interface ChatRepository extends IDisposable {
   createGroupChat: (payload: CreateGroupChatPayload) => Promise<Either<DataError, number>>
   fetchById: (id: number) => Promise<Either<DataError, Chat>>
   initialize: () => void
+  clear: () => void
 }
